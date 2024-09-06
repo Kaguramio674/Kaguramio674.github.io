@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C++笔记—基础语法（1） | Mio's blog</title><meta name="author" content="Mio Kagura"><meta name="copyright" content="Mio Kagura"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="日々私たちが過ごしている日常は、実は奇跡の連続なのかもしれない。">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C++笔记—基础语法（1） | Mio's blog</title><meta name="author" content="Mio Kagura"><meta name="copyright" content="Mio Kagura"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="main 执行之前和之后执行之前：  设置栈指针 初始化static 和global变量 将未初始化的global变量赋初始值short&#x2F;int&#x2F;long&#x3D;0,bool&#x3D;false,pointer&#x3D;null 全局对象初始化，调用构造函数 将main的argc&#x2F;argv传给main attribute((constructor))  main执行之后：  全局对象的析构函数 atexit函数 att">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++笔记—基础语法（1）">
 <meta property="og:url" content="https://kagurua.com/2024/09/06/C-%E7%AC%94%E8%AE%B0%E2%80%94%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%EF%BC%881%EF%BC%89/index.html">
 <meta property="og:site_name" content="Mio&#39;s blog">
-<meta property="og:description" content="日々私たちが過ごしている日常は、実は奇跡の連続なのかもしれない。">
+<meta property="og:description" content="main 执行之前和之后执行之前：  设置栈指针 初始化static 和global变量 将未初始化的global变量赋初始值short&#x2F;int&#x2F;long&#x3D;0,bool&#x3D;false,pointer&#x3D;null 全局对象初始化，调用构造函数 将main的argc&#x2F;argv传给main attribute((constructor))  main执行之后：  全局对象的析构函数 atexit函数 att">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://picbed.kagurua.com/img/74629.jpg">
 <meta property="article:published_time" content="2024-09-06T07:50:53.000Z">
-<meta property="article:modified_time" content="2024-09-06T08:01:46.089Z">
+<meta property="article:modified_time" content="2024-09-06T09:56:37.066Z">
 <meta property="article:author" content="Mio Kagura">
 <meta property="article:tag" content="-C++ -八股">
 <meta name="twitter:card" content="summary">
@@ -57,8 +57,8 @@
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2024-09-06 17:01:46'
+  isToc: true,
+  postUpdate: '2024-09-06 18:56:37'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -162,7 +162,7 @@
       }
     }
     detectApple()
-    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
   const $loadingBox = document.getElementById('loading-box')
   const $body = document.body
   const preloader = {
@@ -183,7 +183,193 @@
     document.addEventListener('pjax:send', () => { preloader.initLoading() })
     document.addEventListener('pjax:complete', () => { preloader.endLoading() })
   }
-})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://picbed.kagurua.com/img/74629.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><i class="fa-fw icon-home"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-home"></use></svg><span> Home</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><i class="fa-fw icon-file"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-file"></use></svg><span> Archives</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><i class="fa-fw icon-tag"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-tag"></use></svg><span> Tags</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><i class="fa-fw icon-tag"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-tag"></use></svg><span> Categories</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover" href="javascript:void(0);"><i class="fa-fw fas fa-list hide"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="fa-fw fas fa-music faa-tada"></i><span> Music</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/movies/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-Negative">                   </use></svg><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/link/"><i class="fa-fw icon-Ironchain"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-Ironchain"></use></svg><span> Link</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><i class="fa-fw icon-home"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-home"></use></svg><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Mio's blog"><span class="site-name">Mio's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><i class="fa-fw icon-home"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-home"></use></svg><span> Home</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><i class="fa-fw icon-file"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-file"></use></svg><span> Archives</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><i class="fa-fw icon-tag"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-tag"></use></svg><span> Tags</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><i class="fa-fw icon-tag"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-tag"></use></svg><span> Categories</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover" href="javascript:void(0);"><i class="fa-fw fas fa-list hide"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="fa-fw fas fa-music faa-tada"></i><span> Music</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/movies/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-Negative">                   </use></svg><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/link/"><i class="fa-fw icon-Ironchain"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-Ironchain"></use></svg><span> Link</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><i class="fa-fw icon-home"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-home"></use></svg><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C++笔记—基础语法（1）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-06T07:50:53.000Z" title="发表于 2024-09-06 16:50:53">2024-09-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-06T08:01:46.089Z" title="更新于 2024-09-06 17:01:46">2024-09-06</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C++笔记—基础语法（1）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://kagurua.com">Mio Kagura</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://kagurua.com/2024/09/06/C-%E7%AC%94%E8%AE%B0%E2%80%94%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%EF%BC%881%EF%BC%89/">https://kagurua.com/2024/09/06/C-%E7%AC%94%E8%AE%B0%E2%80%94%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%EF%BC%881%EF%BC%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://kagurua.com" target="_blank">Mio's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C-%E5%85%AB%E8%82%A1/">-C++ -八股</a></div><div class="post_share"><div class="social-share" data-image="https://picbed.kagurua.com/img/74629.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/08/14/%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%92%8C%E4%BC%98%E5%8C%96%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="如何选择和优化排序算法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">如何选择和优化排序算法</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://picbed.kagurua.com/img/74629.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Mio Kagura</div><div class="author-info__description">日々私たちが過ごしている日常は、実は奇跡の連続なのかもしれない。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Kaguramio674"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="/null" target="_blank" title="Email"><svg class="social_icon faa-tada" aria-hidden="true"><use xlink:href="#icon-email"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://leetcode.cn/u/kaguramio674/" target="_blank" title="Leetcode"><svg class="social_icon faa-tada" aria-hidden="true"><use xlink:href="#icon-leetcode"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://www.linkedin.com/in/yuheng-wu-459518229/" target="_blank" title="Linkedin"><svg class="social_icon faa-tada" aria-hidden="true"><use xlink:href="#icon-Linkedin"></use></svg></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">=====施工中=====</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/06/C-%E7%AC%94%E8%AE%B0%E2%80%94%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%EF%BC%881%EF%BC%89/" title="C++笔记—基础语法（1）">C++笔记—基础语法（1）</a><time datetime="2024-09-06T07:50:53.000Z" title="发表于 2024-09-06 16:50:53">2024-09-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/14/%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%92%8C%E4%BC%98%E5%8C%96%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="如何选择和优化排序算法">如何选择和优化排序算法</a><time datetime="2024-08-14T11:37:28.000Z" title="发表于 2024-08-14 20:37:28">2024-08-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/14/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95cpp%E5%AE%9E%E7%8E%B0/" title="排序算法c++实现">排序算法c++实现</a><time datetime="2024-08-14T09:31:07.000Z" title="发表于 2024-08-14 18:31:07">2024-08-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/09/%E6%BB%9A%E5%8A%A8%E5%93%88%E5%B8%8C-Rabin-Karp%E7%AE%97%E6%B3%95/" title="滚动哈希&amp;Rabin-Karp算法">滚动哈希&amp;Rabin-Karp算法</a><time datetime="2024-07-09T12:01:53.000Z" title="发表于 2024-07-09 21:01:53">2024-07-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/05/%E6%97%A5%E9%BA%BB%E7%AC%A6%E4%BB%8B%E7%BB%8D/" title="日麻符的介绍">日麻符的介绍</a><time datetime="2023-08-04T15:00:00.000Z" title="发表于 2023-08-05 00:00:00">2023-08-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Mio Kagura</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://picbed.kagurua.com/img/74629.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><i class="fa-fw icon-home"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-home"></use></svg><span> Home</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><i class="fa-fw icon-file"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-file"></use></svg><span> Archives</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><i class="fa-fw icon-tag"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-tag"></use></svg><span> Tags</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><i class="fa-fw icon-tag"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-tag"></use></svg><span> Categories</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover" href="javascript:void(0);"><i class="fa-fw fas fa-list hide"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="fa-fw fas fa-music faa-tada"></i><span> Music</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/movies/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-Negative">                   </use></svg><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/link/"><i class="fa-fw icon-Ironchain"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-Ironchain"></use></svg><span> Link</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><i class="fa-fw icon-home"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-home"></use></svg><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Mio's blog"><span class="site-name">Mio's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><i class="fa-fw icon-home"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-home"></use></svg><span> Home</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><i class="fa-fw icon-file"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-file"></use></svg><span> Archives</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><i class="fa-fw icon-tag"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-tag"></use></svg><span> Tags</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><i class="fa-fw icon-tag"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-tag"></use></svg><span> Categories</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover" href="javascript:void(0);"><i class="fa-fw fas fa-list hide"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="fa-fw fas fa-music faa-tada"></i><span> Music</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/movies/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-Negative">                   </use></svg><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/link/"><i class="fa-fw icon-Ironchain"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-Ironchain"></use></svg><span> Link</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><i class="fa-fw icon-home"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-home"></use></svg><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C++笔记—基础语法（1）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-06T07:50:53.000Z" title="发表于 2024-09-06 16:50:53">2024-09-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-06T09:56:37.066Z" title="更新于 2024-09-06 18:56:37">2024-09-06</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C++笔记—基础语法（1）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="main-执行之前和之后"><a href="#main-执行之前和之后" class="headerlink" title="main 执行之前和之后"></a>main 执行之前和之后</h2><p>执行之前：</p>
+<ul>
+<li>设置栈指针</li>
+<li>初始化static 和global变量</li>
+<li>将未初始化的global变量赋初始值short/int/long=0,bool=false,pointer=null</li>
+<li>全局对象初始化，调用构造函数</li>
+<li>将main的argc/argv传给main</li>
+<li><em>attribute</em>((constructor))</li>
+</ul>
+<p>main执行之后：</p>
+<ul>
+<li>全局对象的析构函数</li>
+<li>atexit函数</li>
+<li><em>attribute</em>((destructor))</li>
+</ul>
+<h2 id="指针-Pointer和引用-Reference"><a href="#指针-Pointer和引用-Reference" class="headerlink" title="指针 Pointer和引用 Reference"></a>指针 Pointer和引用 Reference</h2><ul>
+<li><p>指针可以在声明时不初始化,可以稍后赋值,并且可以重新赋值,指向不同的对象。引用必须在声明时初始化,一旦初始化后就不能改变引用的对象。</p>
+</li>
+<li><p>指针可以为空(nullptr),表示不指向任何对象。引用不能为空,必须始终引用一个有效对象。</p>
+</li>
+<li><p>指针可以有多级,如指向指针的指针。引用只能有一级。</p>
+</li>
+<li><p>指针可以进行算术运算,如++或—,引用不能进行算术运算。</p>
+</li>
+<li><p>指针本身占用一定的内存空间(通常是4bytes(32 bit)或8bytes(64 bit));引用不占用额外的内存空间。</p>
+</li>
+<li><p>指针是一个变量，存储的地址，而引用等同于原变量，可以看作是原变量的别名，</p>
+</li>
+</ul>
+<h3 id="指针和引用使用时机"><a href="#指针和引用使用时机" class="headerlink" title="指针和引用使用时机"></a>指针和引用使用时机</h3><p>引用：</p>
+<ul>
+<li>希望在函数内修改原始对象时</li>
+<li>在重载操作符时使用引用<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="keyword">operator</span>==(<span class="type">const</span> MyClass&amp; other) <span class="type">const</span>;</span><br></pre></td></tr></table></figure></li>
+<li>对于大型对象，使用const引用可以避免不必要的复制。</li>
+<li>对栈空间敏感（递归）时</li>
+</ul>
+<p>指针：</p>
+<ul>
+<li>当对象的生命周期需要超出创建它的函数作用域时,返回函数内部动态分配的内存（使用指针）<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">std::vector&lt;<span class="type">int</span>&gt;* <span class="title">createAndFillVector</span><span class="params">(<span class="type">int</span> size)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">auto</span>* vec = <span class="keyword">new</span> std::<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(size);</span><br><span class="line">    <span class="keyword">return</span> vec;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>大对象创建，不想在栈上分配内存</li>
+<li>使用多态<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123; <span class="keyword">public</span>: <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">speak</span><span class="params">()</span> </span>= <span class="number">0</span>; &#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> : <span class="keyword">public</span> Animal &#123; <span class="keyword">public</span>: <span class="function"><span class="type">void</span> <span class="title">speak</span><span class="params">()</span> <span class="keyword">override</span> </span>&#123; <span class="comment">/* ... */</span> &#125; &#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span> : <span class="keyword">public</span> Animal &#123; <span class="keyword">public</span>: <span class="function"><span class="type">void</span> <span class="title">speak</span><span class="params">()</span> <span class="keyword">override</span> </span>&#123; <span class="comment">/* ... */</span> &#125; &#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">Animal* <span class="title">createAnimal</span><span class="params">(std::string type)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (type == <span class="string">&quot;dog&quot;</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Dog</span>();</span><br><span class="line">    <span class="keyword">if</span> (type == <span class="string">&quot;cat&quot;</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Cat</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="堆和栈的区别"><a href="#堆和栈的区别" class="headerlink" title="堆和栈的区别"></a>堆和栈的区别</h2><p>堆（Heap）和栈（Stack）是C++中两种主要的内存分配区域<br>堆（Heap）和栈（Stack）是C++中两种主要的内存分配区域，它们有很大的区别。让我详细解释一下：</p>
+<ol>
+<li><p>内存分配方式：</p>
+<ul>
+<li>栈：自动分配和释放。当进入一个函数时，栈上会自动分配内存；当函数退出时，这些内存会自动释放。</li>
+<li>堆：需要手动分配和释放。使用 new 运算符分配内存，使用 delete 运算符释放内存。</li>
+</ul>
+</li>
+<li><p>内存大小：</p>
+<ul>
+<li>栈：大小通常较小，且固定。在大多数系统中，栈的大小在编译时就确定了。</li>
+<li>堆：大小通常较大，且可以动态增长（受限于可用的物理内存）。</li>
+</ul>
+</li>
+<li><p>分配速度：</p>
+<ul>
+<li>栈：分配非常快，只需要移动栈顶指针。</li>
+<li>堆：分配相对较慢，需要在空闲列表中查找合适的内存块。</li>
+</ul>
+</li>
+<li><p>内存布局和生长：</p>
+<ul>
+<li>栈：内存连续，高地址向低地址增长。不容易有碎片</li>
+<li>堆：内存可能不连续，低地址向高地址增长。容易有碎片</li>
+</ul>
+</li>
+<li><p>生命周期：</p>
+<ul>
+<li>栈：局部变量的生命周期与函数调用周期一致。</li>
+<li>堆：对象的生命周期由程序员控制，可以持续到整个程序结束。</li>
+</ul>
+</li>
+<li><p>管理方式：</p>
+<ul>
+<li>栈：由编译器自动管理。</li>
+<li>堆：由程序员手动管理，或使用智能指针等工具辅助管理。（容易memory leak）</li>
+</ul>
+</li>
+<li><p>数据访问速度：</p>
+<ul>
+<li>栈：访问速度较快，因为内存连续且使用相对寻址。</li>
+<li>堆：访问速度相对较慢，因为可能需要解引用指针。</li>
+</ul>
+</li>
+<li><p>常见用途：</p>
+<ul>
+<li>栈：存储局部变量、函数参数、返回地址等。</li>
+<li>堆：存储动态分配的对象，如需要在函数调用之间持续存在的数据。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyClass</span>(<span class="type">int</span> d) : <span class="built_in">data</span>(d) &#123; std::cout &lt;&lt; <span class="string">&quot;Constructing MyClass &quot;</span> &lt;&lt; data &lt;&lt; std::endl; &#125;</span><br><span class="line">    ~<span class="built_in">MyClass</span>() &#123; std::cout &lt;&lt; <span class="string">&quot;Destroying MyClass &quot;</span> &lt;&lt; data &lt;&lt; std::endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">stackAllocation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">MyClass <span class="title">obj1</span><span class="params">(<span class="number">1</span>)</span></span>;  <span class="comment">// 栈分配</span></span><br><span class="line">    <span class="function">MyClass <span class="title">obj2</span><span class="params">(<span class="number">2</span>)</span></span>;  <span class="comment">// 栈分配</span></span><br><span class="line">    <span class="comment">// 函数结束时，obj2和obj1会自动销毁（按照相反的顺序）</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">heapAllocation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    MyClass* ptr1 = <span class="keyword">new</span> <span class="built_in">MyClass</span>(<span class="number">3</span>);  <span class="comment">// 堆分配</span></span><br><span class="line">    MyClass* ptr2 = <span class="keyword">new</span> <span class="built_in">MyClass</span>(<span class="number">4</span>);  <span class="comment">// 堆分配</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">delete</span> ptr2;  <span class="comment">// 必须手动释放</span></span><br><span class="line">    <span class="keyword">delete</span> ptr1;  <span class="comment">// 必须手动释放</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="内存管理中栈的先进后出"><a href="#内存管理中栈的先进后出" class="headerlink" title="内存管理中栈的先进后出"></a>内存管理中栈的先进后出</h3><p>压栈（Push）操作：</p>
+<ul>
+<li>当有新数据需要压入栈时，处理器会先将栈指针减小（因为栈向低地址增长）。<br>然后将数据存储在新的栈顶位置。</li>
+</ul>
+<p>出栈（Pop）操作：</p>
+<ul>
+<li>当需要弹出数据时，处理器会读取栈指针指向的数据。<br>然后增加栈指针，使其指向下一个元素。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">funcB</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> y = x + <span class="number">5</span>;  <span class="comment">// y 在栈上分配</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;funcB: &quot;</span> &lt;&lt; y &lt;&lt; std::endl;</span><br><span class="line">    <span class="comment">// 函数返回时，y 自动从栈上移除</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">funcA</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">10</span>;  <span class="comment">// a 在栈上分配</span></span><br><span class="line">    <span class="built_in">funcB</span>(a);    <span class="comment">// a 的值被压入栈作为参数</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;funcA: &quot;</span> &lt;&lt; a &lt;&lt; std::endl;</span><br><span class="line">    <span class="comment">// 函数返回时，a 自动从栈上移除</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">funcA</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>当 <code>main()</code> 调用 <code>funcA()</code> 时：</p>
+<ul>
+<li><code>funcA</code> 的返回地址被压入栈。</li>
+<li>为 <code>a</code> 分配栈空间。</li>
+</ul>
+</li>
+<li><p>当 <code>funcA()</code> 调用 <code>funcB(a)</code> 时：</p>
+<ul>
+<li><code>funcB</code> 的返回地址被压入栈。</li>
+<li>参数 <code>a</code> 的值被压入栈。</li>
+<li>为 <code>y</code> 分配栈空间。</li>
+</ul>
+</li>
+<li><p>当 <code>funcB()</code> 返回时：</p>
+<ul>
+<li><code>y</code> 的栈空间被释放。</li>
+<li>参数 <code>a</code> 的值从栈中移除。</li>
+<li>处理器使用返回地址跳回 <code>funcA</code>。</li>
+</ul>
+</li>
+<li><p>当 <code>funcA()</code> 返回时：</p>
+<ul>
+<li><code>a</code> 的栈空间被释放。</li>
+<li>处理器使用返回地址跳回 <code>main</code>。</li>
+</ul>
+</li>
+</ol>
+<h2 id="int-p-10-amp-int-p-10"><a href="#int-p-10-amp-int-p-10" class="headerlink" title="int p[10] &amp; int (p)[10]"></a>int <em>p[10] &amp; int (</em>p)[10]</h2><ol>
+<li>int *p[10]</li>
+</ol>
+<ul>
+<li>它是一个数组（p是一个数组名）</li>
+<li>数组的大小是10</li>
+<li>数组的每个元素是一个指向int的指针</li>
+</ul>
+<ol>
+<li>int (*p)[10]</li>
+</ol>
+<ul>
+<li>它是一个指针（p是一个指针）</li>
+<li>这个指针指向一个数组</li>
+<li>被指向的数组包含10个int元素</li>
+</ul>
+<h2 id="new-delete-和-malloc-free"><a href="#new-delete-和-malloc-free" class="headerlink" title="new/delete 和 malloc/free"></a>new/delete 和 malloc/free</h2><ol>
+<li><p>类型安全：</p>
+<ul>
+<li>new/delete 是类型安全的，malloc/free 不是。</li>
+<li>new 返回类型化的指针，malloc 返回 void*。</li>
+</ul>
+</li>
+<li><p>构造和析构：</p>
+<ul>
+<li>new 会调用构造函数，delete 会调用析构函数。</li>
+<li>malloc/free 不涉及构造和析构。</li>
+</ul>
+</li>
+<li>重载：<ul>
+<li>可以重载 new 和 delete 操作符。</li>
+<li>可以覆盖 malloc 和 free。</li>
+</ul>
+</li>
+</ol>
+<p>对于非基本类型的对象时，创建要使用构造constructor函数，销毁使用析构destructor函数</p>
+<h2 id="Variable-Declaration-amp-Definition-声明和定义"><a href="#Variable-Declaration-amp-Definition-声明和定义" class="headerlink" title="Variable Declaration &amp; Definition 声明和定义"></a>Variable Declaration &amp; Definition 声明和定义</h2><ol>
+<li>变量声明:</li>
+</ol>
+<ul>
+<li>声明告诉编译器变量的名称和类型。</li>
+<li>不分配内存空间。</li>
+<li>通常用于头文件中,告诉其他文件该变量的存在。</li>
+<li>可以多次声明同一个变量。</li>
+</ul>
+<ol>
+<li>变量定义:</li>
+</ol>
+<ul>
+<li>定义不仅声明了变量,还为其分配了内存空间。</li>
+<li>初始化变量（可选）。</li>
+<li>只能定义一次。</li>
+<li>通常在源文件(.cpp)中进行。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://kagurua.com">Mio Kagura</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://kagurua.com/2024/09/06/C-%E7%AC%94%E8%AE%B0%E2%80%94%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%EF%BC%881%EF%BC%89/">https://kagurua.com/2024/09/06/C-%E7%AC%94%E8%AE%B0%E2%80%94%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%EF%BC%881%EF%BC%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://kagurua.com" target="_blank">Mio's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C-%E5%85%AB%E8%82%A1/">-C++ -八股</a></div><div class="post_share"><div class="social-share" data-image="https://picbed.kagurua.com/img/74629.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/08/14/%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%92%8C%E4%BC%98%E5%8C%96%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="如何选择和优化排序算法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">如何选择和优化排序算法</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://picbed.kagurua.com/img/74629.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Mio Kagura</div><div class="author-info__description">日々私たちが過ごしている日常は、実は奇跡の連続なのかもしれない。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Kaguramio674"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="/null" target="_blank" title="Email"><svg class="social_icon faa-tada" aria-hidden="true"><use xlink:href="#icon-email"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://leetcode.cn/u/kaguramio674/" target="_blank" title="Leetcode"><svg class="social_icon faa-tada" aria-hidden="true"><use xlink:href="#icon-leetcode"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://www.linkedin.com/in/yuheng-wu-459518229/" target="_blank" title="Linkedin"><svg class="social_icon faa-tada" aria-hidden="true"><use xlink:href="#icon-Linkedin"></use></svg></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">=====施工中=====</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#main-%E6%89%A7%E8%A1%8C%E4%B9%8B%E5%89%8D%E5%92%8C%E4%B9%8B%E5%90%8E"><span class="toc-number">1.</span> <span class="toc-text">main 执行之前和之后</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88-Pointer%E5%92%8C%E5%BC%95%E7%94%A8-Reference"><span class="toc-number">2.</span> <span class="toc-text">指针 Pointer和引用 Reference</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E5%92%8C%E5%BC%95%E7%94%A8%E4%BD%BF%E7%94%A8%E6%97%B6%E6%9C%BA"><span class="toc-number">2.1.</span> <span class="toc-text">指针和引用使用时机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%86%E5%92%8C%E6%A0%88%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">3.</span> <span class="toc-text">堆和栈的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%B8%AD%E6%A0%88%E7%9A%84%E5%85%88%E8%BF%9B%E5%90%8E%E5%87%BA"><span class="toc-number">3.1.</span> <span class="toc-text">内存管理中栈的先进后出</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#int-p-10-amp-int-p-10"><span class="toc-number">4.</span> <span class="toc-text">int p[10] &amp; int (p)[10]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#new-delete-%E5%92%8C-malloc-free"><span class="toc-number">5.</span> <span class="toc-text">new&#x2F;delete 和 malloc&#x2F;free</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Variable-Declaration-amp-Definition-%E5%A3%B0%E6%98%8E%E5%92%8C%E5%AE%9A%E4%B9%89"><span class="toc-number">6.</span> <span class="toc-text">Variable Declaration &amp; Definition 声明和定义</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/06/C-%E7%AC%94%E8%AE%B0%E2%80%94%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%EF%BC%881%EF%BC%89/" title="C++笔记—基础语法（1）">C++笔记—基础语法（1）</a><time datetime="2024-09-06T07:50:53.000Z" title="发表于 2024-09-06 16:50:53">2024-09-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/14/%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%92%8C%E4%BC%98%E5%8C%96%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="如何选择和优化排序算法">如何选择和优化排序算法</a><time datetime="2024-08-14T11:37:28.000Z" title="发表于 2024-08-14 20:37:28">2024-08-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/14/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95cpp%E5%AE%9E%E7%8E%B0/" title="排序算法c++实现">排序算法c++实现</a><time datetime="2024-08-14T09:31:07.000Z" title="发表于 2024-08-14 18:31:07">2024-08-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/09/%E6%BB%9A%E5%8A%A8%E5%93%88%E5%B8%8C-Rabin-Karp%E7%AE%97%E6%B3%95/" title="滚动哈希&amp;Rabin-Karp算法">滚动哈希&amp;Rabin-Karp算法</a><time datetime="2024-07-09T12:01:53.000Z" title="发表于 2024-07-09 21:01:53">2024-07-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/05/%E6%97%A5%E9%BA%BB%E7%AC%A6%E4%BB%8B%E7%BB%8D/" title="日麻符的介绍">日麻符的介绍</a><time datetime="2023-08-04T15:00:00.000Z" title="发表于 2023-08-05 00:00:00">2023-08-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Mio Kagura</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -218,7 +404,7 @@
   MathJax.startup.document.state(0)
   MathJax.texReset()
   MathJax.typesetPromise()
-}</script></div><script async src="//at.alicdn.com/t/c/font_4120949_eid55hwunuf.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><script data-pjax>
+}</script></div><script async src="//at.alicdn.com/t/c/font_4120949_eid55hwunuf.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
     function butterfly_categories_card_injector_config(){
       var parent_div_git = document.getElementById('recent-posts');
       var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"></ul></div></div>';
@@ -228,7 +414,7 @@
     if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
     butterfly_categories_card_injector_config()
     }
-  </script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+  </script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
 for(var i = 0;i<arr.length;i++){
     arr[i].classList.add('wow');
     arr[i].classList.add('animate__zoomIn');
