@@ -1,0 +1,348 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SQL | Mio's blog</title><meta name="author" content="Mio Kagura"><meta name="copyright" content="Mio Kagura"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1.关系型数据库（Relational Database）与非关系型数据库（NoSQL）的区别关系型数据库的优点:  容易理解。因为它采用了关系模型来组织数据。 可以保持数据的一致性。 数据更新的开销比较小。 支持复杂查询（带where子句的查询）  非关系型数据库的优点:  不需要经过SQL层的解析，读写效率高。 基于键值对，数据的扩展性很好。 可以支持多种类型数据的存储，如图片，文档等等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL">
+<meta property="og:url" content="https://kagurua.com/2024/10/14/SQL%E5%85%AB%E8%82%A1/index.html">
+<meta property="og:site_name" content="Mio&#39;s blog">
+<meta property="og:description" content="1.关系型数据库（Relational Database）与非关系型数据库（NoSQL）的区别关系型数据库的优点:  容易理解。因为它采用了关系模型来组织数据。 可以保持数据的一致性。 数据更新的开销比较小。 支持复杂查询（带where子句的查询）  非关系型数据库的优点:  不需要经过SQL层的解析，读写效率高。 基于键值对，数据的扩展性很好。 可以支持多种类型数据的存储，如图片，文档等等。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://picbed.kagurua.com/img/74629.jpg">
+<meta property="article:published_time" content="2024-10-14T06:17:49.000Z">
+<meta property="article:modified_time" content="2024-10-14T10:18:25.790Z">
+<meta property="article:author" content="Mio Kagura">
+<meta property="article:tag" content="关键词">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picbed.kagurua.com/img/74629.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kagurua.com/2024/10/14/SQL%E5%85%AB%E8%82%A1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'SQL',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-14 19:18:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css"  media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://picbed.kagurua.com/img/74629.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><i class="fa-fw icon-home"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-home"></use></svg><span> Home</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><i class="fa-fw icon-file"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-file"></use></svg><span> Archives</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><i class="fa-fw icon-tag"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-tag"></use></svg><span> Tags</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><i class="fa-fw icon-tag"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-tag"></use></svg><span> Categories</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover" href="javascript:void(0);"><i class="fa-fw fas fa-list hide"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="fa-fw fas fa-music faa-tada"></i><span> Music</span></a></li><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://cocktail-recipe.kagurua.com/"><i class="fa-fw fa-solid fa-martini-glass-citrus faa-tada"></i><span> Cocktail Recipe</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/link/"><i class="fa-fw icon-Ironchain"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-Ironchain"></use></svg><span> Link</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><i class="fa-fw icon-home"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-home"></use></svg><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Mio's blog"><span class="site-name">Mio's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/"><i class="fa-fw icon-home"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-home"></use></svg><span> Home</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/archives/"><i class="fa-fw icon-file"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-file"></use></svg><span> Archives</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/tags/"><i class="fa-fw icon-tag"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-tag"></use></svg><span> Tags</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/categories/"><i class="fa-fw icon-tag"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-tag"></use></svg><span> Categories</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover" href="javascript:void(0);"><i class="fa-fw fas fa-list hide"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="fa-fw fas fa-music faa-tada"></i><span> Music</span></a></li><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://cocktail-recipe.kagurua.com/"><i class="fa-fw fa-solid fa-martini-glass-citrus faa-tada"></i><span> Cocktail Recipe</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/link/"><i class="fa-fw icon-Ironchain"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-Ironchain"></use></svg><span> Link</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><i class="fa-fw icon-home"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-home"></use></svg><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SQL</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-14T06:17:49.000Z" title="发表于 2024-10-14 15:17:49">2024-10-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-14T10:18:25.790Z" title="更新于 2024-10-14 19:18:25">2024-10-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SQL"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="1-关系型数据库（Relational-Database）与非关系型数据库（NoSQL）的区别"><a href="#1-关系型数据库（Relational-Database）与非关系型数据库（NoSQL）的区别" class="headerlink" title="1.关系型数据库（Relational Database）与非关系型数据库（NoSQL）的区别"></a>1.关系型数据库（Relational Database）与非关系型数据库（NoSQL）的区别</h1><p>关系型数据库的优点:</p>
+<ul>
+<li>容易理解。因为它采用了关系模型来组织数据。</li>
+<li>可以保持数据的一致性。</li>
+<li>数据更新的开销比较小。</li>
+<li>支持复杂查询（带where子句的查询）</li>
+</ul>
+<p>非关系型数据库的优点:</p>
+<ul>
+<li>不需要经过SQL层的解析，读写效率高。</li>
+<li>基于键值对，数据的扩展性很好。</li>
+<li>可以支持多种类型数据的存储，如图片，文档等等。</li>
+</ul>
+<p>Advantages of relational databases:</p>
+<ul>
+<li>Easy to understand. Because it uses the relational model to organize data.</li>
+<li>Can maintain data consistency.</li>
+<li>Lower overhead for data updates.</li>
+<li>Supports complex queries (queries with WHERE clauses)</li>
+</ul>
+<p>Advantages of non-relational databases:</p>
+<ul>
+<li>No need for SQL layer parsing, high read and write efficiency.</li>
+<li>Based on key-value pairs, excellent data scalability.</li>
+<li>Can support storage of multiple data types, such as images, documents, etc.</li>
+</ul>
+<h1 id="非关系型数据库"><a href="#非关系型数据库" class="headerlink" title="非关系型数据库"></a>非关系型数据库</h1><p>如Mongodb,Redis,采用键值对存储数据，读写性能高，易于扩展，适用于：</p>
+<ul>
+<li>日志系统（大量写入）</li>
+<li>地图数据（灵活数据模型）</li>
+<li>数据量巨大 (水平扩展，增加服务器以增加速度)</li>
+</ul>
+<p>Such as MongoDB and Redis, which use key-value pairs to store data, have high read and write performance, are easy to scale, and are suitable for:</p>
+<ul>
+<li>Log systems (high-volume write operations)</li>
+<li>Map data (flexible data models)</li>
+<li>Massive amounts of data (scale horizontally)</li>
+</ul>
+<h1 id="2-请解释主键、外键和索引的概念。"><a href="#2-请解释主键、外键和索引的概念。" class="headerlink" title="2.请解释主键、外键和索引的概念。"></a>2.请解释主键、外键和索引的概念。</h1><ul>
+<li>主键：唯一标识表中每行的列，确保数据唯一性。</li>
+<li>外键：建立表间关系，指向另一表的主键。</li>
+<li>索引：对于经常查询的列，创建索引，对某一列或多个列的值进行预排序。该列的值如果越互不相同，那么索引效率越高。<h1 id="3-什么是事务？请解释ACID特性。"><a href="#3-什么是事务？请解释ACID特性。" class="headerlink" title="3.什么是事务？请解释ACID特性。"></a>3.什么是事务？请解释ACID特性。</h1>事务是一系列数据库操作的逻辑单元，它要么全部成功执行，要么全部回滚。这样可以确保数据库始终保持一致的状态。ACID是指原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）和持久性（Durability）。<br>让我们通过一个在线购物的例子来详细说明ACID特性：</li>
+</ul>
+<ol>
+<li>原子性（Atomicity）：原子性确保事务中的所有操作要么全部成功，要么全部回滚。假设用户购买了两件商品，并进行了支付操作。该事务包括扣除用户账户金额、更新库存以及生成订单等操作。如果任何一步操作失败，比如库存不足，整个事务将会回滚，用户账户金额不会被扣除，库存也不会发生变化。</li>
+<li>一致性（Consistency）：一致性确保事务的执行不会破坏数据库的完整性约束。例如，用户进行购买操作时，系统需要确保购买的商品存在于商品列表中，否则事务将被回滚，以保持数据库的一致性。</li>
+<li>隔离性（Isolation）：隔离性确保并发执行的事务彼此相互隔离，互不干扰。假设有两个用户同时购买同一件商品。每个用户的购买操作都应该独立进行，并且彼此之间不应该相互干扰。数据库系统通过锁定机制和并发控制来保证事务的隔离性。</li>
+<li>持久性（Durability）：持久性确保一旦事务提交，其结果将永久保存在数据库中，即使发生系统故障或崩溃。例如，如果用户成功购买商品并支付，一旦事务提交，订单和账户信息将被持久化保存，即使在系统重启后，这些数据也不会丢失。<br>广告</li>
+</ol>
+<h1 id="4-mysql存储引擎"><a href="#4-mysql存储引擎" class="headerlink" title="4. mysql存储引擎"></a>4. mysql存储引擎</h1><ul>
+<li>InnoDB</li>
+<li>MyISAM</li>
+<li>Memory</li>
+</ul>
+<h1 id="5-为什么使用索引"><a href="#5-为什么使用索引" class="headerlink" title="5. 为什么使用索引"></a>5. 为什么使用索引</h1><ul>
+<li>通过创建唯一性索引，可以保证数据库表中每一行数据的唯一性。</li>
+<li>可以大大加快数据的检索速度</li>
+<li>帮助服务器避免排序和临时表</li>
+<li>将随机IO变为顺序IO。</li>
+<li>可以加速表和表之间的连接，特别是在实现数据的参考完整性方面特别有意义。</li>
+</ul>
+<p>Why use indexes?</p>
+<ul>
+<li>ensure the uniqueness of each row of data.</li>
+<li>It can greatly speed up data retrieval</li>
+<li>Helps the server avoid sorting and temporary tables</li>
+<li>Converts random IO to sequential IO.</li>
+<li>It can accelerate the connection between tables, which is especially meaningful in implementing data referential integrity.</li>
+</ul>
+<h1 id="6-连接-join"><a href="#6-连接-join" class="headerlink" title="6.连接 join"></a>6.连接 join</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
+<li>合并 LEFT JOIN 与 RIGHT JOIN来模拟FULL join<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A.id,A.name,B.name <span class="keyword">from</span> A,B <span class="keyword">where</span> A.id<span class="operator">=</span>B.id;</span><br></pre></td></tr></table></figure></li>
+<li>INNER JOIN（内连接,或等值连接）：取得两个表中存在连接匹配关系的记录。<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> A <span class="keyword">inner</span> <span class="keyword">join</span> B <span class="keyword">on</span> A.name <span class="operator">=</span> B.name;</span><br></pre></td></tr></table></figure>
+<img src="image.png" alt="alt text"><br><img src="image-1.png" alt="alt text"></li>
+<li>LEFT JOIN（左连接）：取得左表（table1）完全记录，即是右表（table2）并无对应匹配记录。<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A.id,A.name,B.name <span class="keyword">from</span> A,B <span class="keyword">where</span> A.id<span class="operator">=</span>B.id;</span><br></pre></td></tr></table></figure></li>
+<li>RIGHT JOIN（右连接）：与 LEFT JOIN 相反，取得右表（table2）完全记录，即是左表（table1）并无匹配对应记录。<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> A.id,A.name,B.name <span class="keyword">from</span> A,B <span class="keyword">where</span> A.id<span class="operator">=</span>B.id;</span><br></pre></td></tr></table></figure>
+<h1 id="Innodb为什么要用自增id作为主键？"><a href="#Innodb为什么要用自增id作为主键？" class="headerlink" title="Innodb为什么要用自增id作为主键？"></a>Innodb为什么要用自增id作为主键？</h1>如果表使用自增主键，那么每次插入新的记录，记录就会顺序添加到当前索引节点的后续位置，当一页写满，就会自动开辟一个新的页。如果使用非自增主键（如果身份证号或学号等），由于每次插入主键的值近似于随机，因此每次新纪录都要被插到现有索引页得中间某个位置，频繁的移动、分页操作造成了大量的碎片，得到了不够紧凑的索引结构，后续不得不通过OPTIMIZE TABLE (optimize table) 来重建表并优化填充页面。</li>
+</ul>
+<p>Why does InnoDB use auto-increment ID as the primary key?</p>
+<h1 id="mysql内部构造"><a href="#mysql内部构造" class="headerlink" title="mysql内部构造"></a>mysql内部构造</h1><p>Server 层</p>
+<ul>
+<li>Connection Layer /连接层 (通信协议、线程处理、用户名密码认证) </li>
+<li>Service Layer /SQL 层（服务层）:系统管理及控制工具（Management Services &amp; Utilities）、SQL接口（SQL Interface）、解析器（Parser）、优化器（Optimizer）、缓存（Caches &amp; Buffers）</li>
+</ul>
+<p>Storage Engines </p>
+<p>文件系统层（存储层）</p>
+<h1 id="mysql优化"><a href="#mysql优化" class="headerlink" title="mysql优化"></a>mysql优化</h1><ul>
+<li><p>为搜索字段创建索引</p>
+<ul>
+<li>MySQL会为索引列创建一个类似于书籍目录的数据结构（通常是B-tree）。这个结构允许数据库快速定位到特定的值，而不需要扫描整个表。</li>
+</ul>
+</li>
+<li>避免使用 Select *，列出需要查询的字段</li>
+<li>垂直分割分表</li>
+<li><p>选择正确的存储引擎</p>
+</li>
+<li><p>Create indexes for search fields</p>
+</li>
+<li>Avoid using Select *, list the fields that need to be queried</li>
+<li>Vertical partitioning of tables</li>
+<li>Choose the correct storage engine</li>
+</ul>
+<h1 id="Drop-Delete-Truncate-共同点-amp-区别"><a href="#Drop-Delete-Truncate-共同点-amp-区别" class="headerlink" title="Drop /Delete/Truncate 共同点&amp;区别"></a>Drop /Delete/Truncate 共同点&amp;区别</h1><h1 id="MyISAM和InnoDB实现B-tree的索引方式区别"><a href="#MyISAM和InnoDB实现B-tree的索引方式区别" class="headerlink" title="MyISAM和InnoDB实现B-tree的索引方式区别"></a>MyISAM和InnoDB实现B-tree的索引方式区别</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://kagurua.com">Mio Kagura</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://kagurua.com/2024/10/14/SQL%E5%85%AB%E8%82%A1/">https://kagurua.com/2024/10/14/SQL%E5%85%AB%E8%82%A1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://kagurua.com" target="_blank">Mio's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://picbed.kagurua.com/img/74629.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/09/06/C-%E7%AC%94%E8%AE%B0%E2%80%94%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%EF%BC%881%EF%BC%89/" title="C++笔记—基础语法（1）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C++笔记—基础语法（1）</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://picbed.kagurua.com/img/74629.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Mio Kagura</div><div class="author-info__description">日々私たちが過ごしている日常は、実は奇跡の連続なのかもしれない。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Kaguramio674"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="/null" target="_blank" title="Email"><svg class="social_icon faa-tada" aria-hidden="true"><use xlink:href="#icon-email"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://leetcode.cn/u/kaguramio674/" target="_blank" title="Leetcode"><svg class="social_icon faa-tada" aria-hidden="true"><use xlink:href="#icon-leetcode"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://www.linkedin.com/in/yuheng-wu-459518229/" target="_blank" title="Linkedin"><svg class="social_icon faa-tada" aria-hidden="true"><use xlink:href="#icon-Linkedin"></use></svg></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">=====施工中=====</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88Relational-Database%EF%BC%89%E4%B8%8E%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88NoSQL%EF%BC%89%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">1.关系型数据库（Relational Database）与非关系型数据库（NoSQL）的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">非关系型数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E8%AF%B7%E8%A7%A3%E9%87%8A%E4%B8%BB%E9%94%AE%E3%80%81%E5%A4%96%E9%94%AE%E5%92%8C%E7%B4%A2%E5%BC%95%E7%9A%84%E6%A6%82%E5%BF%B5%E3%80%82"><span class="toc-number">3.</span> <span class="toc-text">2.请解释主键、外键和索引的概念。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E5%8A%A1%EF%BC%9F%E8%AF%B7%E8%A7%A3%E9%87%8AACID%E7%89%B9%E6%80%A7%E3%80%82"><span class="toc-number">4.</span> <span class="toc-text">3.什么是事务？请解释ACID特性。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-mysql%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-number">5.</span> <span class="toc-text">4. mysql存储引擎</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E7%B4%A2%E5%BC%95"><span class="toc-number">6.</span> <span class="toc-text">5. 为什么使用索引</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E8%BF%9E%E6%8E%A5-join"><span class="toc-number">7.</span> <span class="toc-text">6.连接 join</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">7.1.</span> <span class="toc-text">分类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Innodb%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%87%AA%E5%A2%9Eid%E4%BD%9C%E4%B8%BA%E4%B8%BB%E9%94%AE%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">Innodb为什么要用自增id作为主键？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql%E5%86%85%E9%83%A8%E6%9E%84%E9%80%A0"><span class="toc-number">9.</span> <span class="toc-text">mysql内部构造</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql%E4%BC%98%E5%8C%96"><span class="toc-number">10.</span> <span class="toc-text">mysql优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Drop-Delete-Truncate-%E5%85%B1%E5%90%8C%E7%82%B9-amp-%E5%8C%BA%E5%88%AB"><span class="toc-number">11.</span> <span class="toc-text">Drop &#x2F;Delete&#x2F;Truncate 共同点&amp;区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MyISAM%E5%92%8CInnoDB%E5%AE%9E%E7%8E%B0B-tree%E7%9A%84%E7%B4%A2%E5%BC%95%E6%96%B9%E5%BC%8F%E5%8C%BA%E5%88%AB"><span class="toc-number">12.</span> <span class="toc-text">MyISAM和InnoDB实现B-tree的索引方式区别</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/14/SQL%E5%85%AB%E8%82%A1/" title="SQL">SQL</a><time datetime="2024-10-14T06:17:49.000Z" title="发表于 2024-10-14 15:17:49">2024-10-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/06/C-%E7%AC%94%E8%AE%B0%E2%80%94%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%EF%BC%881%EF%BC%89/" title="C++笔记—基础语法（1）">C++笔记—基础语法（1）</a><time datetime="2024-09-06T07:50:53.000Z" title="发表于 2024-09-06 16:50:53">2024-09-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/14/%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%92%8C%E4%BC%98%E5%8C%96%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="如何选择和优化排序算法">如何选择和优化排序算法</a><time datetime="2024-08-14T11:37:28.000Z" title="发表于 2024-08-14 20:37:28">2024-08-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/14/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95cpp%E5%AE%9E%E7%8E%B0/" title="排序算法c++实现">排序算法c++实现</a><time datetime="2024-08-14T09:31:07.000Z" title="发表于 2024-08-14 18:31:07">2024-08-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/09/%E6%BB%9A%E5%8A%A8%E5%93%88%E5%B8%8C-Rabin-Karp%E7%AE%97%E6%B3%95/" title="滚动哈希&amp;Rabin-Karp算法">滚动哈希&amp;Rabin-Karp算法</a><time datetime="2024-07-09T12:01:53.000Z" title="发表于 2024-07-09 21:01:53">2024-07-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Mio Kagura</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async src="//at.alicdn.com/t/c/font_4120949_eid55hwunuf.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '1s');
+    arr[i].setAttribute('data-wow-offset', '100');
+    arr[i].setAttribute('data-wow-iteration', '2');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --></body></html>
